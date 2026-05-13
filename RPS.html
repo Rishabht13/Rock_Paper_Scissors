@@ -1,43 +1,75 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Rock Paper Scissors</title>
-  </head>
-  <body>
-    <button onclick="
-        const random = Math.random();
-        if(random < 1/3){
-            alert('Computer choose Rock,,its a Tie!');
-        }else if(random >=1/3 && random < 2/3){
-            alert('Computer choose Paper,,You Lost!');
-        }else {
-            alert('Computer choose Scissors,,You Won!');
-        }
-        " 
-    >Rock</button>  
-    <button onclick="
-          const random = Math.random();  
-        if(random < 1/3){
-            alert('Computer choose Rock,,You Won!');
-        }else if(random >=1/3 && random < 2/3){
-            alert('Computer choose Paper,,Its a Tie!');
-        }else {
-            alert('Computer choose Scissors,,You Lost!');
-        }
-        
-    ">Paper</button>  
-    <button onclick="
-        const random = Math.random();
-        if(random < 1/3){
-            alert('Computer choose Rock,,You Lost!');
-        }else if(random >=1/3 && random < 2/3){
-            alert('Computer choose Paper,,You Win!');
-        }else {
-            alert('Computer choose Scissors,,Its a Tie!');
-        }
-        " >Scissors</button>  
-    <script>
+    <head>
+        <title>
+            Rock Paper Scissors
+        </title>
 
-    </script>
-  </body>
+    </head>
+    <body>
+        <h1>Click on your choice</h1>
+        <button onclick="
+        compare('Rock');
+        ">Rock</button>
+        <button onclick="compare('Paper')">Paper</button>
+        <button onclick="compare('Scissors')">Scissors</button>
+        <script>
+            
+            function pickMove(){
+                let computerMove = '';
+                const random = Math.random(); 
+                if(random < 1/3){
+                    computerMove = 'Rock';
+                }
+                else if(random >= 1/3 && random < 2/3){
+                    computerMove = 'Paper';
+                }
+                else{
+                    computerMove = 'Scissors';
+                } 
+                return computerMove;     
+            }
+            
+            function compare(myMove){
+                const computerMove = pickMove();
+                let result = '';
+                if(myMove === 'Rock'){
+                    if(computerMove === 'Rock'){
+                       result = 'Its a Tie!';
+                    }
+                    else if(computerMove === 'Paper'){
+                        result = 'You Lose!';
+                    }
+                    else{
+                        result = 'You Win!';
+                    }
+                }
+            else if(myMove === 'Paper'){
+                if(computerMove === 'Rock'){
+                    result = 'You Win!';
+                }
+                else if(computerMove === 'Paper'){
+                    result = 'Its a Tie!';
+                }
+                else{
+                    result = 'You Lose!';
+                }
+                
+            }
+            else{
+                 if(computerMove === 'Rock'){
+                    result = 'You Lose!';
+                }
+                else if(computerMove === 'Paper'){
+                    result = 'You Win!';
+                }
+                else{
+                    result = 'Its a Tie!';
+                }
+            }
+            console.log(result);
+            
+            alert(`You choose ${myMove}. Computer choose ${computerMove}.${result}`);}
+        </script>
+    </body>
 </html>
