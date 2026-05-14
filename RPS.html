@@ -18,13 +18,17 @@
         Score.Wins = 0;
         Score.Ties = 0;
         alert('Score was Reset');
+        /* when we remove it from local storage it leaves null value
+        if we reset score and refresh site it will just pick up the last data*/
+        localStorage.removeItem('Score');
         ">Reset Score</button>
         <script>
-            const Score = {
+           // we used default operator for the null case
+            let Score = JSON.parse(localStorage.getItem('Score')) || {
                 Wins : 0,
                 Loses : 0,
                 Ties : 0
-            }
+            };
             function pickMove(){
                 let computerMove = '';
                 const random = Math.random(); 
@@ -87,6 +91,8 @@
                 Score.Ties += 1;
             }
             console.log(result);
+             /*First we comvert the object score in json string to save in local storage.To put the value of score again above, we convert it back to object.*/
+            localStorage.setItem('Score',JSON.stringify(Score));
             
             alert(`You choose ${myMove}. Computer choose ${computerMove}.${result}
 Wins : ${Score.Wins}, Loses : ${Score.Loses}, Ties : ${Score.Ties}`);}
