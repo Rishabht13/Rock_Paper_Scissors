@@ -13,8 +13,18 @@
         ">Rock</button>
         <button onclick="compare('Paper')">Paper</button>
         <button onclick="compare('Scissors')">Scissors</button>
+        <button onclick="
+        Score.Loses = 0;
+        Score.Wins = 0;
+        Score.Ties = 0;
+        alert('Score was Reset');
+        ">Reset Score</button>
         <script>
-            
+            const Score = {
+                Wins : 0,
+                Loses : 0,
+                Ties : 0
+            }
             function pickMove(){
                 let computerMove = '';
                 const random = Math.random(); 
@@ -67,9 +77,19 @@
                     result = 'Its a Tie!';
                 }
             }
+            if(result === 'You Win!'){
+                Score.Wins += 1;
+            }
+            else if(result === 'You Lose!'){
+                Score.Loses += 1;
+            }
+            else{
+                Score.Ties += 1;
+            }
             console.log(result);
             
-            alert(`You choose ${myMove}. Computer choose ${computerMove}.${result}`);}
+            alert(`You choose ${myMove}. Computer choose ${computerMove}.${result}
+Wins : ${Score.Wins}, Loses : ${Score.Loses}, Ties : ${Score.Ties}`);}
         </script>
     </body>
 </html>
