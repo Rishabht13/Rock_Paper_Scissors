@@ -1,0 +1,49 @@
+  body{
+        background-color: rgb(25, 25, 25);
+        color: aliceblue;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      img{
+        height: 50px;
+        
+      }
+      .move-button{
+        
+        background-color: transparent;
+        border: 3px solid white;
+        height: 100px;
+        width: 100px;
+        border-radius: 50px;
+        cursor: pointer;
+        margin: 10px;
+        
+      }
+      .result{
+        font-size: larger;
+        font-weight: 900;
+        font-family:sans-serif;
+         margin-left: 135px;
+      }
+      .move{
+       margin-bottom: 50px;
+       margin-left: 40px;
+      }
+      .counter{
+        font-size: large;
+        font-family: Arial;
+        margin-bottom: 50px;
+         margin-left: 70px;
+      }
+      .reset{
+        padding: 15px;
+        margin-left: 120px;
+        font-size: medium;
+        font-family:Arial, Helvetica, sans-serif;
+        background-color: red;
+        color: aliceblue;
+        border: none;
+        border-radius: 15px;
+      }
+      h1{
+        margin-left: 30px;
+      }
