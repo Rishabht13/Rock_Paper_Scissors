@@ -28,14 +28,13 @@
       Reset Score
     </button>
     <script>
-        
       // we used default operator for the null case
       let Score = JSON.parse(localStorage.getItem("Score")) || {
         Wins: 0,
         Loses: 0,
         Ties: 0,
       };
-    
+
       updateScore();
       function pickMove() {
         let computerMove = "";
@@ -88,22 +87,21 @@
         console.log(result);
         /*First we comvert the object score in json string to save in local storage.To put the value of score again above, we convert it back to object.*/
         localStorage.setItem("Score", JSON.stringify(Score));
-        showMove(myMove,computerMove);
+        showMove(myMove, computerMove);
         updateResult(result);
         updateScore();
-
-        
       }
-      function updateScore(){
-        document.querySelector('.counter').innerHTML = `Wins : ${Score.Wins}, Loses : ${Score.Loses}, Ties : ${Score.Ties}`;
-    }
-    function showMove(myMove,computerMove){
-      document.querySelector('.move').innerHTML = `Your move : ${myMove},,, Computer's Move : ${computerMove}`
-    }
-      function updateResult(result){
-        document.querySelector('.result').innerHTML = `${result}`
+      function updateScore() {
+        document.querySelector(".counter").innerHTML =
+          `Wins : ${Score.Wins}, Loses : ${Score.Loses}, Ties : ${Score.Ties}`;
       }
-      
+      function showMove(myMove, computerMove) {
+        document.querySelector(".move").innerHTML =
+          `Your move : ${myMove},,, Computer's Move : ${computerMove}`;
+      }
+      function updateResult(result) {
+        document.querySelector(".result").innerHTML = `${result}`;
+      }
     </script>
   </body>
 </html>
