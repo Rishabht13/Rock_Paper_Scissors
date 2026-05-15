@@ -2,16 +2,68 @@
 <html>
   <head>
     <title>Rock Paper Scissors</title>
+    <style>
+      body{
+        background-color: rgb(25, 25, 25);
+        color: aliceblue;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      img{
+        height: 50px;
+        
+      }
+      .move-button{
+        
+        background-color: transparent;
+        border: 3px solid white;
+        height: 100px;
+        width: 100px;
+        border-radius: 50px;
+        cursor: pointer;
+        margin: 10px;
+        
+      }
+      .result{
+        font-size: larger;
+        font-weight: 900;
+        font-family:sans-serif;
+         margin-left: 135px;
+      }
+      .move{
+       margin-bottom: 50px;
+       margin-left: 40px;
+      }
+      .counter{
+        font-size: large;
+        font-family: Arial;
+        margin-bottom: 50px;
+         margin-left: 70px;
+      }
+      .reset{
+        padding: 15px;
+        margin-left: 120px;
+        font-size: medium;
+        font-family:Arial, Helvetica, sans-serif;
+        background-color: red;
+        color: aliceblue;
+        border: none;
+        border-radius: 15px;
+      }
+      h1{
+        margin-left: 30px;
+      }
+
+    </style>
   </head>
   <body>
     <h1>Click on your choice</h1>
-    <button onclick="compare('Rock')">Rock</button>
-    <button onclick="compare('Paper')">Paper</button>
-    <button onclick="compare('Scissors')">Scissors</button>
+    <button onclick="compare('Rock')" class ="move-button"><img src="rock-emoji.png" alt=""></button>
+    <button onclick="compare('Paper')" class ="move-button"><img src="paper-emoji.png" alt=""></button>
+    <button onclick="compare('Scissors')" class ="move-button"><img src="scissors-emoji.png" alt=""></button>
     <p class="result"></p>
     <p class="move"></p>
     <p class="counter"></p>
-    <button
+    <button class="reset"
       onclick="
         Score.Loses = 0;
         Score.Wins = 0;
@@ -97,7 +149,7 @@
       }
       function showMove(myMove, computerMove) {
         document.querySelector(".move").innerHTML =
-          `Your move : ${myMove},,, Computer's Move : ${computerMove}`;
+          `Your move : <img src="${myMove}-emoji.png">     <img src="${computerMove}-emoji.png"> : Computer's Move `;
       }
       function updateResult(result) {
         document.querySelector(".result").innerHTML = `${result}`;
