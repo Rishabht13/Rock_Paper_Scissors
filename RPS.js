@@ -8,22 +8,19 @@
       updateScore();
       let id;
       function auto(){
+        let autotext = document.querySelector('.auto');
         if(!id){
 
           id = setInterval(function(){
             play(pickMove());
           },1000);
+           autotext.innerText = 'Stop Play';
+          autotext.classList.add('stop');
         } else{
           clearInterval(id);
           id = null;
          // id = null bcoz previous id will be saved and !id will be false
-        }
-        let autotext = document.querySelector('.auto');
-        if(autotext.innerText === 'Auto Play'){
-          autotext.innerText = 'Stop Play';
-          autotext.classList.add('stop');
-        }else{
-          autotext.innerText = 'Auto Play';
+         autotext.innerText = 'Auto Play';
           autotext.classList.remove('stop');
         }
       }
