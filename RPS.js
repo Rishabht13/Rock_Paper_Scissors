@@ -6,6 +6,27 @@
       };
 
       updateScore();
+      let id;
+      function auto(){
+        if(!id){
+
+          id = setInterval(function(){
+            play(pickMove());
+          },1000);
+        } else{
+          clearInterval(id);
+          id = null;
+         // id = null bcoz previous id will be saved and !id will be false
+        }
+        let autotext = document.querySelector('.auto');
+        if(autotext.innerText === 'Auto Play'){
+          autotext.innerText = 'Stop Play';
+          autotext.classList.add('stop');
+        }else{
+          autotext.innerText = 'Auto Play';
+          autotext.classList.remove('stop');
+        }
+      }
       function pickMove() {
         let computerMove = "";
         const random = Math.random();
@@ -19,7 +40,7 @@
         return computerMove;
       }
 
-      function compare(myMove) {
+      function play(myMove) {
         const computerMove = pickMove();
         let result = "";
         if (myMove === "Rock") {

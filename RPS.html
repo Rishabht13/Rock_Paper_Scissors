@@ -6,9 +6,9 @@
   </head>
   <body>
     <h1>Click on your choice</h1>
-    <button onclick="compare('Rock')" class ="move-button"><img src="rock-emoji.png" alt=""></button>
-    <button onclick="compare('Paper')" class ="move-button"><img src="paper-emoji.png" alt=""></button>
-    <button onclick="compare('Scissors')" class ="move-button"><img src="scissors-emoji.png" alt=""></button>
+    <button onclick="play('Rock')" class ="move-button"><img src="rock-emoji.png" alt=""></button>
+    <button onclick="play('Paper')" class ="move-button"><img src="paper-emoji.png" alt=""></button>
+    <button onclick="play('Scissors')" class ="move-button"><img src="scissors-emoji.png" alt=""></button>
     <p class="result"></p>
     <p class="move"></p>
     <p class="counter"></p>
@@ -28,6 +28,7 @@
     >
       Reset Score
     </button>
+    <button class="auto" onclick="auto()">Auto Play</button>
     <script src="RPS.js">
     </script>
   </body>
