@@ -7,11 +7,11 @@
 
       updateScore();
       let id;
-      function auto(){
-        let autotext = document.querySelector('.auto');
+      let autotext = document.querySelector('.auto');
+      document.querySelector('.auto').addEventListener('click',()=>{
         if(!id){
 
-          id = setInterval(function(){
+          id = setInterval(()=>{
             play(pickMove());
           },1000);
            autotext.innerText = 'Stop Play';
@@ -23,7 +23,7 @@
          autotext.innerText = 'Auto Play';
           autotext.classList.remove('stop');
         }
-      }
+      });
       function pickMove() {
         let computerMove = "";
         const random = Math.random();
@@ -36,6 +36,42 @@
         }
         return computerMove;
       }
+      document.querySelector('.Rock').addEventListener('click',()=>{
+        play('Rock');
+      });
+      document.querySelector('.Paper').addEventListener('click',()=>{
+        play('Paper');
+      });
+      document.querySelector('.Scissors').addEventListener('click',()=>{
+        play('Scissors');
+      });
+      document.body.addEventListener('keydown',(event)=>{
+        if(event.key === 'r'){
+          play('Rock');
+        }
+        else if(event.key === 'p'){
+          play('Paper');
+        }else if(event.key === 's'){
+          play('Scissors');
+        }
+      });
+      document.querySelector('.reset').addEventListener('click',()=>{
+         Score.Loses = 0;
+        Score.Wins = 0;
+        Score.Ties = 0;
+        alert('Score was Reset');
+        /* when we remove it from local storage it leaves null value
+        if we reset score and refresh site it will just pick up the last data*/
+        localStorage.removeItem('Score');
+        document.querySelector('.move').innerHTML = '';
+        document.querySelector('.result').innerHTML = '';
+        updateScore();
+         clearInterval(id);
+          id = null;
+         // id = null bcoz previous id will be saved and !id will be false
+         autotext.innerText = 'Auto Play';
+          autotext.classList.remove('stop');
+      })
 
       function play(myMove) {
         const computerMove = pickMove();

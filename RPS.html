@@ -6,29 +6,16 @@
   </head>
   <body>
     <h1>Click on your choice</h1>
-    <button onclick="play('Rock')" class ="move-button"><img src="rock-emoji.png" alt=""></button>
-    <button onclick="play('Paper')" class ="move-button"><img src="paper-emoji.png" alt=""></button>
-    <button onclick="play('Scissors')" class ="move-button"><img src="scissors-emoji.png" alt=""></button>
+    <button  class ="move-button Rock"><img src="rock-emoji.png" alt=""></button>
+    <button  class ="move-button Paper"><img src="paper-emoji.png" alt=""></button>
+    <button class ="move-button Scissors"><img src="scissors-emoji.png" alt=""></button>
     <p class="result"></p>
     <p class="move"></p>
     <p class="counter"></p>
-    <button class="reset"
-      onclick="
-        Score.Loses = 0;
-        Score.Wins = 0;
-        Score.Ties = 0;
-        alert('Score was Reset');
-        /* when we remove it from local storage it leaves null value
-        if we reset score and refresh site it will just pick up the last data*/
-        localStorage.removeItem('Score');
-        document.querySelector('.move').innerHTML = '';
-        document.querySelector('.result').innerHTML = '';
-        updateScore();
-      "
-    >
+    <button class="reset">
       Reset Score
     </button>
-    <button class="auto" onclick="auto()">Auto Play</button>
+    <button class="auto" >Auto Play</button>
     <script src="RPS.js">
     </script>
   </body>
